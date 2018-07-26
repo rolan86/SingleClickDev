@@ -1,0 +1,4 @@
+config:
+  use: 'default'
+  api_version: 2
+  pub_ip: '192.168.168.72'

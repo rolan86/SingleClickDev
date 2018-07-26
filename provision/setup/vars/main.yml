@@ -1,0 +1,8 @@
+githubuser: <git_username>
+githubpassword: <git_password>
+
+order_service_repo: <git_repo_order_service>
+
+order_service_description: 'Order Service'
+order_service_path: '/tmp/OR-SRV/target/Order-Service-0.0.1-SNAPSHOT.jar'
+order_service_name: 'orders'

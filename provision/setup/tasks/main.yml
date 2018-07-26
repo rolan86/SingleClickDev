@@ -1,0 +1,21 @@
+- name: Install packages
+  become: yes
+  apt: pkg={{ item }} state=installed update_cache=yes
+  with_items:
+    - openjdk-8-jre
+    - openjdk-8-jdk
+    - maven
+
+- name: Install elasticsearch
+  become: yes
+  apt:
+    name: elasticsearch
+
+- name: Get updated files from git repository
+  git:
+    repo: "https://{{ githubuser | urlencode }}:{{ githubpassword | urlencode }}@github.com/{{ order_service_repo | urlencode }}"
+    dest: /tmp/OR-SRV
+    version: develop
+
+- name: Build OR-SRV
+  command: mvn clean install -f /tmp/OR-SRV/pom.xml
